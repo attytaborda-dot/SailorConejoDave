@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sailor Conejo Dave</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Nunito', sans-serif; background: #1a0a2e; color: #fff; overflow-x: hidden; }
+
+    .hero { position: relative; width: 100%; height: 100vh; overflow: hidden; }
+    .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(90,20,120,0.55) 0%, rgba(20,5,40,0.7) 100%); z-index: 2; }
+    .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 3; width: 90%; max-width: 800px; }
+
+    .hero-badge { display: inline-block; background: rgba(255,180,220,0.2); border: 1px solid rgba(255,180,220,0.5); color: #ffb4dc; font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; padding: 6px 20px; border-radius: 50px; margin-bottom: 20px; }
+    .hero-content h1 { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; color: #fff; text-shadow: 0 0 30px rgba(255,150,220,0.8); margin-bottom: 16px; line-height: 1.1; }
+    .hero-content h1 span { color: #ffb4dc; }
+    .hero-content p { font-size: clamp(1rem, 2vw, 1.25rem); color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+    .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 3; color: rgba(255,255,255,0.5); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+    section { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; color: #ffb4dc; margin-bottom: 12px; }
+    h2 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 24px; line-height: 1.2; }
+    .divider { width: 60px; height: 2px; background: linear-gradient(to right, #ffb4dc, #a78bfa); margin-bottom: 32px; }
+
+    .mission-text { font-size: 1.15rem; line-height: 1.9; color: rgba(255,255,255,0.85); }
+    .mission-text strong { color: #ffb4dc; }
+
+    .powers-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 16px; }
+    .power-card { width:240px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,180,220,0.2); border-radius: 16px; padding: 28px 24px; transition: transform 0.2s, border-color 0.2s; }
+    .power-card:hover { transform: translateY(-4px); border-color: rgba(255,180,220,0.5); }
+    .power-icon { font-size: 2rem; margin-bottom: 14px; }
+    .power-card h3 { font-family: 'Cinzel', serif; font-size: 1rem; color: #ffb4dc; margin-bottom: 10px; }
+    .power-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+    .enemies-list { list-style: none; margin-top: 16px; }
+    .enemies-list li { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+    .enemy-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .enemies-list li strong { color: #fff; display: block; margin-bottom: 4px; font-size: 1.05rem; }
+
+    .cta-section { text-align: center; padding: 80px 20px 100px; background: rgba(255,180,220,0.04); border-top: 1px solid rgba(255,180,220,0.1); }
+    .cta-section h2 { max-width: 600px; margin: 0 auto 16px; }
+    .cta-section p { color: rgba(255,255,255,0.65); margin-bottom: 36px; font-size: 1rem; }
+
+    .btn { display: inline-block; padding: 14px 40px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, opacity 0.15s; letter-spacing: 1px; }
+    .btn:hover { transform: scale(1.04); opacity: 0.92; }
+    .btn-primary { background: linear-gradient(135deg, #e879b9, #a78bfa); color: #fff; }
+    .btn-secondary { background: transparent; border: 1px solid rgba(255,180,220,0.5); color: #ffb4dc; margin-left: 16px; }
+
+    footer { text-align: center; padding: 24px; font-size: 0.8rem; color: rgba(255,255,255,0.25); border-top: 1px solid rgba(255,255,255,0.06); }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="Sailormoon.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Defender of the Universe</div>
+      <h1>Sailor <span>Conejo</span> Dave</h1>
+      <p>Arrived from the misty lands of the UK, armed with an obsession for sugar and an unstoppable craving for chocolate. Evil doesn't stand a chance — especially if there's cake nearby.</p>
+    </div>
+    <div class="scroll-hint">&#8595; Scroll</div>
+  </div>
+
+  <section>
+    <p class="section-label">Sacred Oath</p>
+    <h2>The Mission</h2>
+    <div class="divider"></div>
+    <p class="mission-text">
+      In the name of <strong>chocolate, biscuits, and all things sugary</strong>, Sailor Conejo Dave has sworn to protect the world from the forces of evil — and also from anyone who dares put <strong>vegetables near his dessert</strong>.<br><br>
+      Summoned from the depths of a <strong>Manchester Greggs</strong>, he travelled to Barcelona with a single purpose: to fight darkness, eat pastries, and confuse everyone with his <strong>very British accent</strong>.<br><br>
+      His power grows exponentially in the presence of a <strong>chocolate fountain</strong>. His weakness is kale.
+    </p>
+  </section>
+
+  <section style="text-align: center; padding: 0 20px;">
+    <img src="Gemini_Generated_Image_526vcl526vcl526v1.png" alt="Sailor Conejo Dave" style="max-width: 600px; width: 100%; border-radius: 16px;">
+  </section>
+
+  <section>
+    <p class="section-label">Special Abilities</p>
+    <h2>Sailor Powers</h2>
+    <div class="divider"></div>
+    <div class="powers-grid">
+      <div class="power-card">
+        <div class="power-icon">🍫</div>
+        <h3>Chocolate Beam</h3>
+        <p>Fires a devastating beam of molten chocolate at enemies. Side effect: everything smells amazing afterwards.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-icon">🍰</div>
+        <h3>Cake Shield</h3>
+        <p>Summons a fortress of layered sponge cake. Technically edible. Technically a shield. No one has ever tested which comes first.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-icon">🐰</div>
+        <h3>Conejo Dash</h3>
+        <p>Moves at lightning speed toward any bakery within a 5km radius. Completely uncontrollable once activated.</p>
+      </div>
+      <div class="power-card">
+        <div class="power-icon">🇬🇧</div>
+        <h3>British Confusion</h3>
+        <p>Confuses enemies by saying "cheers", "sorted", and "bloody hell" in rapid succession. 100% effective in Spain.</p>
+      </div>
+    </div>
+  </section>
+
+   <section style="text-align: center; padding: 0 20px;">
+    <img src="Gemini_Generated_Image_n6q7dn6q7dn6q7dn (1).png" alt="Sailor Conejo Dave" style="max-width: 600px; width: 100%; border-radius: 16px;">
+  </section>
+
+  <section>
+    <p class="section-label">Rogue's Gallery</p>
+    <h2>Known Enemies</h2>
+    <div class="divider"></div>
+    <ul class="enemies-list">
+      <li>
+        <span class="enemy-icon">🥦</span>
+        <div><strong>The Broccoli Witch</strong>Attempts to replace dessert menus with green smoothies. Sailor Dave's most feared adversary.</div>
+      </li>
+      <li>
+        <span class="enemy-icon">🧁</span>
+        <div><strong>The Last Cupcake Thief</strong>Takes the last pastry at every social gathering. Diabolical. Unforgivable.</div>
+      </li>
+      <li>
+        <span class="enemy-icon">☕</span>
+        <div><strong>Lord Decaf</strong>Spreads decaffeinated coffee across the land, weakening Sailor Dave's sugar-fuelled powers at the source.</div>
+      </li>
+      <li>
+        <span class="enemy-icon">🌧️</span>
+        <div><strong>The Spanish Sun</strong>Not evil per se, but deeply confusing after a lifetime in the UK. A daily struggle.</div>
+      </li>
+    </ul>
+  </section>
+  
+  <section style="text-align: center; padding: 0 10px;">
+    <img src="Gemini_Generated_Image_15ihlm15ihlm15ih (1).png" alt="Sailor Conejo Dave" style="max-width: 700px; width: 100%; border-radius: 10px;">
+  </section>
+
+  <div class="cta-section">
+    <p class="section-label">Join the Cause</p>
+    <h2>The Universe Needs You</h2>
+    <p>Or at least someone to share a chocolate cake with Sailor Dave on a Friday afternoon.</p>
+    <a href="#" class="btn btn-primary">Pledge Allegiance</a>
+    <a href="#" class="btn btn-secondary">Learn More</a>
+  </div>
+
+  <footer>
+    &copy; 2026 Sailor Conejo Dave. All sweets reserved. Evil will be defeated, one cake at a time.
+  </footer>
+
+</body>
+</html>
