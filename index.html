@@ -43,9 +43,32 @@
       text-align: center;
     }
     .power-card:hover { transform: translateY(-4px); border-color: rgba(255,180,220,0.5); }
-    .power-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
-    .power-card h3 { font-family: 'Cinzel', serif; font-size: 1rem; color: #ffb4dc; margin-bottom: 10px; }
-    .power-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+
+    .power-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    .power-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #ffb4dc;
+      margin-bottom: 10px;
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .power-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      text-align: center;
+      width: 100%;
+    }
 
     .enemies-list { list-style: none; margin-top: 16px; }
     .enemies-list li { display: flex; align-items: flex-start; gap: 16px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
@@ -100,22 +123,22 @@
     <div class="divider"></div>
     <div class="powers-grid">
       <div class="power-card">
-        <div class="power-icon">🍫</div>
+        <span class="power-icon">🍫</span>
         <h3>Chocolate Beam</h3>
         <p>Fires a devastating beam of molten chocolate at enemies. Side effect: everything smells amazing afterwards.</p>
       </div>
       <div class="power-card">
-        <div class="power-icon">🍰</div>
+        <span class="power-icon">🍰</span>
         <h3>Cake Shield</h3>
         <p>Summons a fortress of layered sponge cake. Technically edible. Technically a shield. No one has ever tested which comes first.</p>
       </div>
       <div class="power-card">
-        <div class="power-icon">🐰</div>
+        <span class="power-icon">🐰</span>
         <h3>Conejo Dash</h3>
         <p>Moves at lightning speed toward any bakery within a 5km radius. Completely uncontrollable once activated.</p>
       </div>
       <div class="power-card">
-        <div class="power-icon">🎩</div>
+        <span class="power-icon">🎩</span>
         <h3>British Confusion</h3>
         <p>Confuses enemies by saying "cheers", "sorted", and "bloody hell" in rapid succession. 100% effective in Spain.</p>
       </div>
